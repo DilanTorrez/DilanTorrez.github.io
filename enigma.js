@@ -45,10 +45,6 @@ function avanzarRotores() {
 // Función para cifrar una letra usando la máquina Enigma
 function encriptarLetra(letra) {
 
-  // Reiniciar las posiciones de los rotores
-  rotorPosition1 = 0;
-  rotorPosition2 = 0;
-  rotorPosition3 = 0;
   // Convertir la letra a mayúsculas
   letra = letra.toUpperCase();
 
