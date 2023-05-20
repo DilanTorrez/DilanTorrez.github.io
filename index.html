@@ -23,13 +23,18 @@
             </div>
 
             <div class="field">
-              <button class="button is-success" onclick="cifrarMensaje()">Cifrar</button>
+              <button class="button is-success" onclick="cifrarMensaje(),mostrarCifrado()">Cifrar</button>
             </div>
 
+            <div class="field">
+              <label class="label">Proceso de Cifrado:</label>
+              <p class="has-text-centered" id="proceso"></p>
+            </div>
             <div class="field">
               <label class="label" for="mensaje">Mensaje Cifrado:</label>
               <input class="input is-medium is-warning" id="mensajeCifrado" disabled></input>
             </div>
+            
 
             <div class="field">
               <label class="label" for="mensaje">Mensaje:</label>
@@ -42,6 +47,7 @@
               <label class="label" for="mensaje">Mensaje Decifrado:</label>
               <input class="input is-medium is-warning" id="mensajeDescifrado" disabled></input>
             </div>
+
           </div>
 
           <div class="columns">

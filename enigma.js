@@ -14,6 +14,10 @@ const rotorIII = "BDFHJLCPRTXVZNYEIWGAKMUSQO";
 // reflector = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 const reflector = "YRUHQSLDPXNGOKMIEBFZCWVJAT";
 
+let proceso = [];
+let textoEncriptado = "";
+
+
 // Posiciones iniciales de los rotores
 let rotorPosition1 = 0;
 let rotorPosition2 = 0;
@@ -53,38 +57,53 @@ function encriptarLetra(letra) {
     // Obtener el índice de la letra en el alfabeto
     // si un texto = HOLA -> texto.charCodeAt(0) = H 
     const index = letra.charCodeAt(0) - 65;
-
+    textoEncriptado = "";
     // Avanzar los rotores antes de cifrar la letra
     avanzarRotores();
 
+
+    textoEncriptado = textoEncriptado+letra.charAt(0)+" -> ";
     // Realizar el cifrado de sustitución a través de los rotores
     // usare console.log para mostrar por consola el proceso de encriptacion
     // claro que esto solo se vera en modo inspecion en una pagina web e ir a console
     let output = rotorIII[(index + rotorPosition3) % 26];
-    console.log("rotor3",output);
+    
+    textoEncriptado = textoEncriptado+output.charAt(0);
     output = rotorII[((output.charCodeAt(0) - 65) + rotorPosition2) % 26];
-    console.log("rotor2",output);
+    
+    textoEncriptado = textoEncriptado+"-> "+output.charAt(0);
     output = rotorI[((output.charCodeAt(0) - 65) + rotorPosition1) % 26];
-    console.log("rotor1",output);
+    
+    textoEncriptado = textoEncriptado+"-> "+output.charAt(0);
 
     // Reflejar el cifrado a través del reflector
     output = reflector[output.charCodeAt(0) - 65];
-    console.log("reflector",output);
+    
+    textoEncriptado = textoEncriptado+"-> "+output.charAt(0);
 
     // Realizar el cifrado de sustitución inversa a través de los rotores
     output = String.fromCharCode((rotorI.indexOf(output) - rotorPosition1 + 26) % 26 + 65);
-    console.log("rotor1",output);
+    
+    textoEncriptado = textoEncriptado+"-> "+output.charAt(0);
     output = String.fromCharCode((rotorII.indexOf(output) - rotorPosition2 + 26) % 26 + 65);
-    console.log("rotor2",output);
+    
+    textoEncriptado = textoEncriptado+"-> "+output.charAt(0);
     output = String.fromCharCode((rotorIII.indexOf(output) - rotorPosition3 + 26) % 26 + 65);
-    console.log("rotor3 letra encriptado :",output);
+    textoEncriptado = textoEncriptado+"-> "+output.charAt(0);
+    
+    proceso.push(textoEncriptado);
+    console.log(proceso);
 return output;
 
 }
 
-
 // Retornar cualquier otro carácter sin cifrar
 return letra;
+}
+
+// Acceder al elemento <textarea> y asignarle el contenido del vector
+function mostrarCifrado() {
+  document.getElementById("proceso").innerHTML = proceso.join("<br>");
 }
 
 // Función para cifrar un mensaje
