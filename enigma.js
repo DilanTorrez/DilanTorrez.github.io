@@ -97,7 +97,8 @@ const letraCifrada = encriptarLetra(mensaje[i]);
 mensajeCifrado += letraCifrada;
 }
 
-document.getElementById("mensajeCifrado").textContent = mensajeCifrado;
+document.getElementById("mensajeCifrado").value = mensajeCifrado;
+
 }
 
 // Función para descifrar un mensaje
@@ -115,12 +116,12 @@ const letraDescifrada = encriptarLetra(mensajeCifrado[i]);
 mensajeDescifrado += letraDescifrada;
 }
 
-document.getElementById("mensajeDescifrado").textContent = mensajeDescifrado;
+document.getElementById("mensajeDescifrado").value = mensajeDescifrado;
 }
 
 function copiarMensajeCifrado() {
   // Obtener el contenido del elemento <p> por su id
-  var mensajeCifrado = document.getElementById("mensajeCifrado").textContent;
+  var mensajeCifrado = document.getElementById("mensajeCifrado").value;
 
   // Asignar el contenido al atributo 'value' del <input>
   document.getElementById("mensajeACifrar").value = mensajeCifrado;

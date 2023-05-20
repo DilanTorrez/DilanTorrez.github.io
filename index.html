@@ -3,6 +3,7 @@
 
 <head>
   <title>Enigma</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="enigma.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
 </head>
@@ -10,63 +11,55 @@
 <body>
   <div class="container">
     <div class="columns is-centered">
-      <div class="column">
+      <div class="column is-half">
         <div class="card">
           <div class="card-content">
-            <p class="title">
-              CODIGO ENIGMA REALIZADO EN JAVASCRIPT
-            </p>
-            <p class="subtitle">
-              Dilan Torrez Salinas
-            </p>
+            <p class="title has-text-centered">CODIGO ENIGMA REALIZADO EN JAVASCRIPT</p>
+            <p class="subtitle has-text-centered">Dilan Torrez Salinas</p>
+
             <div class="field">
               <label class="label" for="mensaje">Mensaje:</label>
               <input class="input is-medium is-success" type="text" id="mensaje" />
             </div>
+
             <div class="field">
               <button class="button is-success" onclick="cifrarMensaje()">Cifrar</button>
             </div>
+
             <div class="field">
               <label class="label" for="mensaje">Mensaje Cifrado:</label>
-              <label class="label" id="mensajeCifrado"></label>
+              <input class="input is-medium is-warning" id="mensajeCifrado" disabled></input>
             </div>
+
             <div class="field">
               <label class="label" for="mensaje">Mensaje:</label>
               <input class="input is-medium is-success" type="text" id="mensajeACifrar" />
             </div>
+
             <div class="field">
               <button class="button is-primary" onclick="copiarMensajeCifrado()">Copiar mensaje cifrado</button>
-
               <button class="button is-success" onclick="descifrarMensaje()">Descifrar</button>
-
               <label class="label" for="mensaje">Mensaje Decifrado:</label>
-              <label class="label" id="mensajeDescifrado"></label>
+              <input class="input is-medium is-warning" id="mensajeDescifrado" disabled></input>
             </div>
           </div>
-          
-            <div class="columns">
-              <div class="column has-text-centered">
-                <p class="is-size-5">QR Codigo Enigma:</p>
-                <img class="is-inline-block" src="enigma.png" style="width: 200px;">
-              </div>
-            </div>
 
-          
+          <div class="columns">
+            <div class="column has-text-centered">
+              <p class="is-size-5">QR Codigo Enigma:</p>
+              <img class="is-inline-block" src="enigma.png" style="width: 200px;">
+            </div>
+          </div>
+
           <footer class="card-footer">
             <p class="card-footer-item">
-              <span>
-                View on <a href="https://github.com/DilanTorrez/DilanTorrez.github.io">Repositorio de GITHUB</a>
-              </span>
+              <span>repositorio de <a href="https://github.com/DilanTorrez/DilanTorrez.github.io">GITHUB</a></span>
             </p>
-
           </footer>
         </div>
       </div>
     </div>
-
   </div>
-
-
 </body>
 
 </html>
