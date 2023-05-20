@@ -58,80 +58,92 @@ function encriptarLetra(letra) {
     avanzarRotores();
 
 
-    textoEncriptado = textoEncriptado+letra.charAt(0)+" -> ";
+    textoEncriptado = textoEncriptado + letra.charAt(0) + " -> ";
     // Realizar el cifrado de sustitución a través de los rotores
     // usare console.log para mostrar por consola el proceso de encriptacion
     // claro que esto solo se vera en modo inspecion en una pagina web e ir a console
     let output = rotorIII[(index + rotorPosition3) % 26];
-    
-    textoEncriptado = textoEncriptado+output.charAt(0);
+
+    textoEncriptado = textoEncriptado + output.charAt(0);
     output = rotorII[((output.charCodeAt(0) - 65) + rotorPosition2) % 26];
-    
-    textoEncriptado = textoEncriptado+"-> "+output.charAt(0);
+
+    textoEncriptado = textoEncriptado + "-> " + output.charAt(0);
     output = rotorI[((output.charCodeAt(0) - 65) + rotorPosition1) % 26];
-    
-    textoEncriptado = textoEncriptado+"-> "+output.charAt(0);
+
+    textoEncriptado = textoEncriptado + "-> " + output.charAt(0);
 
     // Reflejar el cifrado a través del reflector
     output = reflector[output.charCodeAt(0) - 65];
-    
-    textoEncriptado = textoEncriptado+"-> "+output.charAt(0);
+
+    textoEncriptado = textoEncriptado + "-> " + output.charAt(0);
 
     // Realizar el cifrado de sustitución inversa a través de los rotores
     output = String.fromCharCode((rotorI.indexOf(output) - rotorPosition1 + 26) % 26 + 65);
-    
-    textoEncriptado = textoEncriptado+"-> "+output.charAt(0);
+
+    textoEncriptado = textoEncriptado + "-> " + output.charAt(0);
     output = String.fromCharCode((rotorII.indexOf(output) - rotorPosition2 + 26) % 26 + 65);
-    
-    textoEncriptado = textoEncriptado+"-> "+output.charAt(0);
+
+    textoEncriptado = textoEncriptado + "-> " + output.charAt(0);
     output = String.fromCharCode((rotorIII.indexOf(output) - rotorPosition3 + 26) % 26 + 65);
-    textoEncriptado = textoEncriptado+"-> "+output.charAt(0);
-    
+    textoEncriptado = textoEncriptado + "-> " + output.charAt(0);
+
     proceso.push(textoEncriptado);
     console.log(proceso);
-return output;
+    return output;
 
-}
+  }
 
-// Retornar cualquier otro carácter sin cifrar
-return letra;
+  // Retornar cualquier otro carácter sin cifrar
+  return letra;
 }
 
 // Acceder al elemento <textarea> y asignarle el contenido del vector
+function limpiarCampoTexto() {
+  rotorPosition1 = 0;
+  rotorPosition2 = 0;
+  rotorPosition3 = 0;
+  document.getElementById("proceso").innerHTML = "";
+  proceso = [];
+}
+function posicion0() {
+  rotorPosition1 = 0;
+  rotorPosition2 = 0;
+  rotorPosition3 = 0;
+}
 function mostrarCifrado() {
-  document.getElementById("proceso").innerHTML = proceso.join("<br>");
+  document.getElementById("proceso").innerHTML = proceso.join("\n");
 }
 
 // Función para cifrar un mensaje
 function cifrarMensaje() {
-const mensaje = document.getElementById("mensaje").value;
-let mensajeCifrado = "";
+  const mensaje = document.getElementById("mensaje").value;
+  let mensajeCifrado = "";
 
-for (let i = 0; i < mensaje.length; i++) {
-const letraCifrada = encriptarLetra(mensaje[i]);
-mensajeCifrado += letraCifrada;
-}
+  for (let i = 0; i < mensaje.length; i++) {
+    const letraCifrada = encriptarLetra(mensaje[i]);
+    mensajeCifrado += letraCifrada;
+  }
 
-document.getElementById("mensajeCifrado").value = mensajeCifrado;
+  document.getElementById("mensajeCifrado").value = mensajeCifrado;
 
 }
 
 // Función para descifrar un mensaje
 function descifrarMensaje() {
-const mensajeCifrado = document.getElementById("mensajeACifrar").value;
-let mensajeDescifrado = "";
+  const mensajeCifrado = document.getElementById("mensajeACifrar").value;
+  let mensajeDescifrado = "";
 
-// Reiniciar las posiciones de los rotores
-rotorPosition1 = 0;
-rotorPosition2 = 0;
-rotorPosition3 = 0;
+  // Reiniciar las posiciones de los rotores
+  rotorPosition1 = 0;
+  rotorPosition2 = 0;
+  rotorPosition3 = 0;
 
-for (let i = 0; i < mensajeCifrado.length; i++) {
-const letraDescifrada = encriptarLetra(mensajeCifrado[i]);
-mensajeDescifrado += letraDescifrada;
-}
+  for (let i = 0; i < mensajeCifrado.length; i++) {
+    const letraDescifrada = encriptarLetra(mensajeCifrado[i]);
+    mensajeDescifrado += letraDescifrada;
+  }
 
-document.getElementById("mensajeDescifrado").value = mensajeDescifrado;
+  document.getElementById("mensajeDescifrado").value = mensajeDescifrado;
 }
 
 function copiarMensajeCifrado() {

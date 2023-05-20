@@ -23,18 +23,21 @@
             </div>
 
             <div class="field">
-              <button class="button is-success" onclick="cifrarMensaje(),mostrarCifrado()">Cifrar</button>
+              <button class="button is-success"
+                onclick="limpiarCampoTexto(),cifrarMensaje(),mostrarCifrado(),posicion0()">Cifrar</button>
             </div>
 
             <div class="field">
               <label class="label">Proceso de Cifrado:</label>
-              <p class="has-text-centered" id="proceso"></p>
+              <button class="button is-success" onclick="limpiarCampoTexto()">Limpiar Campo de Texto</button>
+              <textarea class="textarea has-text-centered" id="proceso" placeholder="10 lines of textarea"
+                rows="10"></textarea>
             </div>
             <div class="field">
               <label class="label" for="mensaje">Mensaje Cifrado:</label>
               <input class="input is-medium is-warning" id="mensajeCifrado" disabled></input>
             </div>
-            
+
 
             <div class="field">
               <label class="label" for="mensaje">Mensaje:</label>
@@ -43,7 +46,7 @@
 
             <div class="field">
               <button class="button is-primary" onclick="copiarMensajeCifrado()">Copiar mensaje cifrado</button>
-              <button class="button is-success" onclick="descifrarMensaje()">Descifrar</button>
+              <button class="button is-success" onclick="descifrarMensaje(),posicion0()">Descifrar</button>
               <label class="label" for="mensaje">Mensaje Decifrado:</label>
               <input class="input is-medium is-warning" id="mensajeDescifrado" disabled></input>
             </div>
