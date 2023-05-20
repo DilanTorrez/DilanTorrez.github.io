@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Enigma</title>
+  <script src="enigma.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column">
+        <div class="card">
+          <div class="card-content">
+            <p class="title">
+              CODIGO ENIGMA REALIZADO EN JAVASCRIPT
+            </p>
+            <p class="subtitle">
+              Dilan Torrez Salinas
+            </p>
+            <label class="label" for="mensaje">Mensaje:</label>
+            <input class="input is-medium is-success" type="text" id="mensaje" />
+
+            <button class="button is-success" onclick="cifrarMensaje()">Cifrar</button>
+
+            <label class="label" for="mensaje">Mensaje Cifrado:</label>
+            <label class="label" id="mensajeCifrado"></label>
+
+            <label class="label" for="mensaje">Mensaje:</label>
+            <input class="input is-medium is-success" type="text" id="mensajeACifrar" />
+            <button class="button is-primary" onclick="copiarMensajeCifrado()">Copiar mensaje cifrado</button>
+
+            <button class="button is-success" onclick="descifrarMensaje()">Descifrar</button>
+
+            <label class="label" for="mensaje">Mensaje Decifrado:</label>
+            <label class="label" id="mensajeDescifrado"></label>
+
+          </div>
+          <footer class="card-footer">
+            <p class="card-footer-item">
+              <span>
+                View on <a href="https://twitter.com/codinghorror/status/506010907021828096">Twitter</a>
+              </span>
+            </p>
+            <p class="card-footer-item">
+              <span>
+                Share on <a href="#">Facebook</a>
+              </span>
+            </p>
+          </footer>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+</body>
+
+</html>
