@@ -19,24 +19,39 @@
             <p class="subtitle">
               Dilan Torrez Salinas
             </p>
-            <label class="label" for="mensaje">Mensaje:</label>
-            <input class="input is-medium is-success" type="text" id="mensaje" />
+            <div class="field">
+              <label class="label" for="mensaje">Mensaje:</label>
+              <input class="input is-medium is-success" type="text" id="mensaje" />
+            </div>
+            <div class="field">
+              <button class="button is-success" onclick="cifrarMensaje()">Cifrar</button>
+            </div>
+            <div class="field">
+              <label class="label" for="mensaje">Mensaje Cifrado:</label>
+              <label class="label" id="mensajeCifrado"></label>
+            </div>
+            <div class="field">
+              <label class="label" for="mensaje">Mensaje:</label>
+              <input class="input is-medium is-success" type="text" id="mensajeACifrar" />
+            </div>
+            <div class="field">
+              <button class="button is-primary" onclick="copiarMensajeCifrado()">Copiar mensaje cifrado</button>
 
-            <button class="button is-success" onclick="cifrarMensaje()">Cifrar</button>
+              <button class="button is-success" onclick="descifrarMensaje()">Descifrar</button>
 
-            <label class="label" for="mensaje">Mensaje Cifrado:</label>
-            <label class="label" id="mensajeCifrado"></label>
-
-            <label class="label" for="mensaje">Mensaje:</label>
-            <input class="input is-medium is-success" type="text" id="mensajeACifrar" />
-            <button class="button is-primary" onclick="copiarMensajeCifrado()">Copiar mensaje cifrado</button>
-
-            <button class="button is-success" onclick="descifrarMensaje()">Descifrar</button>
-
-            <label class="label" for="mensaje">Mensaje Decifrado:</label>
-            <label class="label" id="mensajeDescifrado"></label>
-
+              <label class="label" for="mensaje">Mensaje Decifrado:</label>
+              <label class="label" id="mensajeDescifrado"></label>
+            </div>
           </div>
+          
+            <div class="columns">
+              <div class="column has-text-centered">
+                <p class="is-size-5">QR Codigo Enigma:</p>
+                <img class="is-inline-block" src="enigma.png" style="width: 200px;">
+              </div>
+            </div>
+
+          
           <footer class="card-footer">
             <p class="card-footer-item">
               <span>
